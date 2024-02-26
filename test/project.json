@@ -1,0 +1,79 @@
+{
+  "name": "test",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "test-filereplacements",
+  "sourceRoot": "test/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/test",
+        "index": "test/src/index.html",
+        "browser": "test/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "test/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["test/src/favicon.ico", "test/src/assets"],
+        "styles": ["test/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "test/src/theme.scss",
+              "with": "config/src/theme.scss"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "test:build:production"
+        },
+        "development": {
+          "buildTarget": "test:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "test:build"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "test:build",
+        "staticFilePath": "dist/test/browser"
+      }
+    }
+  }
+}
