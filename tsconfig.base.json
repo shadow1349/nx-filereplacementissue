@@ -15,7 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@test-filereplacements/config": ["config/src/index.ts"]
+      "@test-filereplacements/components": ["shared/components/src/index.ts"],
+      "@test-filereplacements/config": ["config/src/index.ts"],
+      "@test-filereplacements/injection-tokens": [
+        "shared/injection-tokens/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

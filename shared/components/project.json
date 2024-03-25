@@ -1,0 +1,9 @@
+{
+  "name": "components",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "shared/components/src",
+  "prefix": "test-filereplacements",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

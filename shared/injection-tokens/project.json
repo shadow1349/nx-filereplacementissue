@@ -1,0 +1,9 @@
+{
+  "name": "injection-tokens",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "shared/injection-tokens/src",
+  "prefix": "test-filereplacements",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
