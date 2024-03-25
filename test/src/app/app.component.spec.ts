@@ -22,7 +22,6 @@ describe('AppComponent', () => {
 
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
-    // renderer = fixture.componentRef.injector.get(Renderer2);
     fixture.detectChanges();
   });
 
