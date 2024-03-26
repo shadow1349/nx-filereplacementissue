@@ -1,6 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TEST_INJECTION_TOKEN } from '@test-filereplacements/injection-tokens';
+import {
+  provideToken,
+  TEST_INJECTION_TOKEN,
+} from '@test-filereplacements/injection-tokens';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -9,12 +12,7 @@ import { BehaviorSubject } from 'rxjs';
   imports: [CommonModule],
   templateUrl: './components.component.html',
   styleUrl: './components.component.css',
-  providers: [
-    {
-      provide: TEST_INJECTION_TOKEN,
-      useValue: new BehaviorSubject<string>('Hello World'),
-    },
-  ],
+  providers: [provideToken()],
 })
 export class ComponentsComponent {
   constructor(
