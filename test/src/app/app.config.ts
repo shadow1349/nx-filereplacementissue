@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     {
       provide: TEST_INJECTION_TOKEN,
-      useValue: new BehaviorSubject<string>('Hello World'),
+      useValue: new BehaviorSubject<string>('TEST 123'),
     },
   ],
 };
